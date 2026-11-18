@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RISD Logo – Random RGB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logo" role="img" aria-label="RISD logo, 1877"></div>
+
+  <script>
+    const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+    function changeColor() {
+      const color = `rgb(${rand(0, 255)}, ${rand(0, 255)}, ${rand(0, 255)})`;
+      document.documentElement.style.setProperty('--logo-color', color);
+    }
+
+    // Change color, then wait a random time (0.3s - 3s) before the next change
+    function loop() {
+      changeColor();
+      setTimeout(loop, rand(300, 3000));
+    }
+
+    loop();
+  </script>
+</body>
+</html>
